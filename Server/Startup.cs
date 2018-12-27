@@ -32,24 +32,33 @@ namespace ReactTemplate.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+
+            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "React Template");
+                });
             }
             else
             {
                 app.UseHsts();
             }
-
-            app.UseDefaultFiles();
+            app.UseMvc();
+            var DefaultFile = new DefaultFilesOptions();
+            DefaultFile.DefaultFileNames.Clear();
+            DefaultFile.DefaultFileNames.Add("index.html");
+            app.UseDefaultFiles(DefaultFile);
             app.UseStaticFiles();
             app.UseHttpsRedirection();
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "React Template");
-            });
-            app.UseMvc();
+
+            
 
             /*
             app.Run(async (context) =>
