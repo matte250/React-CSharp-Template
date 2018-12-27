@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactTemplate.WebApi", "ReactTemplate.WebApi.csproj", "{B007D5F6-36FB-4C5B-876F-B6DFD298BC6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactTemplate.WebApi", "WebApi\ReactTemplate.WebApi.csproj", "{B007D5F6-36FB-4C5B-876F-B6DFD298BC6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
