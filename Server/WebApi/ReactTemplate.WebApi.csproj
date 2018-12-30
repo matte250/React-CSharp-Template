@@ -18,5 +18,9 @@
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Business\ReactTemplate.Business.csproj" />
+  </ItemGroup>
 
 </Project>
