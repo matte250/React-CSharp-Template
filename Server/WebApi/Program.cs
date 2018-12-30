@@ -19,6 +19,7 @@ namespace ReactTemplate.WebApi
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseWebRoot("wwwroot/Generated")
                 .UseStartup<Startup>();
     }
 }

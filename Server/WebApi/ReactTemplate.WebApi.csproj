@@ -12,6 +12,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="pwsh &quot;BuildScripts/ReactBuild.ps1&quot;" />
+  </Target>
+  
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>

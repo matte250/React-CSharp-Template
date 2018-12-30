@@ -32,10 +32,6 @@ namespace ReactTemplate.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            //app.UseDefaultFiles();
-            //app.UseStaticFiles();
-
-            
 
             if (env.IsDevelopment())
             {
@@ -58,16 +54,6 @@ namespace ReactTemplate.WebApi
             app.UseStaticFiles();
             app.UseHttpsRedirection();
 
-            
-
-            /*
-            app.Run(async (context) =>
-            {
-                //await context.Response.WriteAsync("u mum gay");
-                var url = new Uri(@"wwwroot/default.html");
-                await context.Response.SendFileAsync(url.AbsolutePath);
-            });
-            */
 
         }
     }
