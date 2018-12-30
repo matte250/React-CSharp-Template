@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data\ReactTemplate.Data.csproj" PrivateAssets="all"/>
+    <ProjectReference Include="..\Data\ReactTemplate.Data.csproj" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>

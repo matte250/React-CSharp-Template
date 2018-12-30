@@ -7,7 +7,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
@@ -16,11 +19,13 @@
   </Target>
   
   <ItemGroup>
+    <Folder Include="Requests\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\Business\ReactTemplate.Business.csproj" />
+    <ProjectReference Include="..\Data\ReactTemplate.Data.csproj" />
   </ItemGroup>
 
 </Project>

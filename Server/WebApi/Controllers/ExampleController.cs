@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ReactTemplate.WebApi.Models;
 using ReactTemplate.WebApi.Services;
@@ -7,38 +9,39 @@ namespace ReactTemplate.WebApi.Controllers
 {
     [Route("v1/")]
     [ApiController]
-    public class ExampleController : ControllerBase
+    public class ExampleController : Controller
     {
-        private readonly IExampleServices _services;
+        private readonly IExampleService _services;
 
-        public ExampleController(IExampleServices services)
+        public ExampleController(IExampleService services)
         {
             _services = services;
         }
+
+        /// <summary>
+        ///     Creates a new Item
+        /// </summary>
+        /// <param name="itemName">Name of item</param>
+        /// <param name="value">Value of item</param>
+        /// <response code="200">Id of created Item</response>
         [HttpPost]
         [Route("AddExampleItem")]
-        public ActionResult<ExampleModel> AddExampleItem(ExampleModel item)
+        [ProducesResponseType(200, Type = typeof(int))]
+        public async Task<IActionResult> AddExampleItem([FromQuery] [Required] string itemName, [FromQuery] [Required] double value)
         {
-            var exampleModelItem = _services.AddExampleModelItem(item);
-
-            if(exampleModelItem == null)
-            {
-                return NotFound();
-            }
-            return Ok(exampleModelItem);
+            return Ok(await _services.AddExampleModelItem(itemName, value));
         }
 
+        /// <summary>
+        ///     Retrieves all items
+        /// </summary>
+        /// <response code="200">A set of all items</response>
         [HttpGet]
         [Route("GetExampleItems")]
-        public ActionResult<Dictionary<string, ExampleModel>> GetExampleItems()
+        [ProducesResponseType(200, Type = typeof(ISet<ExampleModel>))]
+        public async Task<IActionResult> GetExampleItems()
         {
-            var exampleModelItems = _services.GetExampleModelItems();
-
-            if (exampleModelItems.Count == 0)
-            {
-                return NotFound();
-            }
-
+            var exampleModelItems = await _services.GetExampleModelItems();
             return Ok(exampleModelItems);
         }
     }
